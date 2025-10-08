@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -30,6 +33,16 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = productRequestMapper(productRequest);
         return productMapper(productRepository.save(product));
+
+    }
+
+    @Override
+    public List<ProductResponse> findAllProduct() {
+        List<Product> products =  productRepository.findAll();
+
+        return products.stream()
+                .map(this::productMapper)
+                .collect(Collectors.toList());
 
     }
 
