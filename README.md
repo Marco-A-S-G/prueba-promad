@@ -9,7 +9,7 @@ Microservicio para la gestión de productos
 - Git
 * Clonar repositorio
 en una ventana bash
-git clone 'https://github.com/Marco-A-S-G/promad-order-service.git'
+git clone 'https://github.com/Marco-A-S-G/prueba-promad.git'
 cd order
 *Levantar servicio
 mvn spring-boot:run
@@ -17,10 +17,10 @@ mvn clean package
 java -jar target/examen-0.0.1-SNAPSHOT.jar
 
 
-Ejecutar pruebas
+*Ejecutar pruebas
 mvn test -Dtest=ProductServiceImplTest
 
-Order Service: 
+Endpoints:
 POST http://localhost:8080/api/products
 {
   "id": 1,
@@ -34,3 +34,4 @@ GET http://localhost:8080/api/products/stock/id_buscar
 GET http://localhost:8080/api/products/allproducts
 H2 Console : 
 http://localhost:8080/h2-console
+
