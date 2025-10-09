@@ -59,6 +59,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponse productMapper (Product product){
 
         return ProductResponse.builder()
+                .id(product.getId())
                 .name(product.getName())
                 .price(product.getPrice())
                 .active(product.getActive())

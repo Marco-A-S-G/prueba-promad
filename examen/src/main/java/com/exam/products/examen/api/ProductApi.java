@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("api/products")
 @RequiredArgsConstructor
 public class ProductApi {
 
     private final ProductService productService;
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getAllProducts() {
+        return new ResponseEntity<>(productService.findAllProduct(), HttpStatus.OK);
+    }
 
     @GetMapping("stock/{id}")
     public ResponseEntity<ProductResponse> stock(@NotNull(message = "El id no debe de ser null") @PathVariable Long id){
@@ -37,4 +42,6 @@ public class ProductApi {
         return new ResponseEntity<>(productService.findAllProduct(),HttpStatus.OK);
 
     }
+
+
 }
